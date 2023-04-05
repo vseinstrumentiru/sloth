@@ -180,7 +180,7 @@ func (v validateCommand) Run(ctx context.Context, config RootConfig) error {
 
 					err := gen.GenerateKubernetes(ctx, *sloGroup, io.Discard)
 					if err != nil {
-						validation.Errs = append(validation.Errs, fmt.Errorf("could not generate Kubernetes format rules: %w", err)}
+						validation.Errs = append(validation.Errs, fmt.Errorf("could not generate Kubernetes format rules: %w", err))
 					}
 					continue
 				}
@@ -202,7 +202,7 @@ func (v validateCommand) Run(ctx context.Context, config RootConfig) error {
 
 					err := gen.GenerateOpenSLO(ctx, *sloGroup, io.Discard)
 					if err != nil {
-						validation.Errs = append(validation.Errs, fmt.Errorf("Could not generate OpenSLO format rules: %w", err)}
+						validation.Errs = append(validation.Errs, fmt.Errorf("Could not generate OpenSLO format rules: %w", err))
 					}
 					continue
 				}
