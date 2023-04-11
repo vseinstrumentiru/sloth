@@ -13,6 +13,7 @@ require (
 	github.com/prometheus/prometheus v0.40.3
 	github.com/sirupsen/logrus v1.9.0
 	github.com/slok/reload v0.1.0
+	github.com/slok/sloth v0.0.0-00010101000000-000000000000
 	github.com/spotahome/kooper/v2 v2.2.0
 	github.com/stretchr/testify v1.8.1
 	github.com/traefik/yaegi v0.14.3
@@ -106,3 +107,5 @@ require (
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.3.0 // indirect
 )
+
+replace github.com/slok/sloth => github.com/vseinstrumentiru/sloth v0.11.1-vi
