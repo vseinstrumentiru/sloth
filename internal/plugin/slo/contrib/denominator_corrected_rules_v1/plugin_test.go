@@ -237,7 +237,7 @@ func TestProcessSLO(t *testing.T) {
 					MetadataRecRules: model.PromRuleGroup{Rules: []rulefmt.Rule{
 						{
 							Record: "slo:numerator_correction:ratio5m",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[5m])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[5m])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -248,7 +248,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio30m",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[30m])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[30m])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -259,7 +259,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio1h",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[1h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[1h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -270,7 +270,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio2h",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[2h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[2h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -281,7 +281,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio6h",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[6h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[6h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -292,7 +292,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio1d",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[1d])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[1d])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -303,7 +303,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio3d",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[3d])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[3d])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -426,7 +426,7 @@ func TestProcessSLO(t *testing.T) {
 					MetadataRecRules: model.PromRuleGroup{Rules: []rulefmt.Rule{
 						{
 							Record: "slo:numerator_correction:ratio5m",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[5m])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[5m])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -437,7 +437,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio30m",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[30m])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[30m])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -448,7 +448,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio1h",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[1h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[1h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -459,7 +459,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio2h",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[2h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[2h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -470,7 +470,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio6h",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[6h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[6h])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -481,7 +481,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio1d",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[1d])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[1d])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -492,7 +492,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio3d",
-							Expr:   `(sum(rate(http_request_duration_seconds_count{job="myservice"}[3d])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_request_duration_seconds_count{job="myservice"}[3d])))/(sum(rate(http_request_duration_seconds_count{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -630,7 +630,7 @@ func TestProcessSLO(t *testing.T) {
 					MetadataRecRules: model.PromRuleGroup{Rules: []rulefmt.Rule{
 						{
 							Record: "slo:numerator_correction:ratio5m",
-							Expr:   `(sum(rate(http_requests_total{job="myservice"}[5m])))/(sum(rate(http_requests_total{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_requests_total{job="myservice"}[5m])))/(sum(rate(http_requests_total{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -641,7 +641,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio30m",
-							Expr:   `(sum(rate(http_requests_total{job="myservice"}[30m])))/(sum(rate(http_requests_total{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_requests_total{job="myservice"}[30m])))/(sum(rate(http_requests_total{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -652,7 +652,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio1h",
-							Expr:   `(sum(rate(http_requests_total{job="myservice"}[1h])))/(sum(rate(http_requests_total{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_requests_total{job="myservice"}[1h])))/(sum(rate(http_requests_total{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -663,7 +663,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio2h",
-							Expr:   `(sum(rate(http_requests_total{job="myservice"}[2h])))/(sum(rate(http_requests_total{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_requests_total{job="myservice"}[2h])))/(sum(rate(http_requests_total{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -674,7 +674,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio6h",
-							Expr:   `(sum(rate(http_requests_total{job="myservice"}[6h])))/(sum(rate(http_requests_total{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_requests_total{job="myservice"}[6h])))/(sum(rate(http_requests_total{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -685,7 +685,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio1d",
-							Expr:   `(sum(rate(http_requests_total{job="myservice"}[1d])))/(sum(rate(http_requests_total{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_requests_total{job="myservice"}[1d])))/(sum(rate(http_requests_total{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
@@ -696,7 +696,7 @@ func TestProcessSLO(t *testing.T) {
 						},
 						{
 							Record: "slo:numerator_correction:ratio3d",
-							Expr:   `(sum(rate(http_requests_total{job="myservice"}[3d])))/(sum(rate(http_requests_total{job="myservice"}[30d])))`,
+							Expr:   `clamp_max((sum(rate(http_requests_total{job="myservice"}[3d])))/(sum(rate(http_requests_total{job="myservice"}[30d]))), 1.0)`,
 							Labels: map[string]string{
 								"global01k1":    "global01v1",
 								"global02k1":    "global02v1",
